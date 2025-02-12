@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine.Events;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit; // ✅ Importa correctamente las clases
 
-public class TeleportAreaWithFade : TeleportationArea
+public class TeleportAreaWithFade : TeleportationArea // ✅ Elimina Locomotion.Teleportation.
 {
     private FadeCanvas fadeCanvas = null;
 

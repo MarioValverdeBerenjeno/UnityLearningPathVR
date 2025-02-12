@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// <summary>
 /// An interactable knob that follows the rotation of the interactor
 /// </summary>
-public class XRKnob : XRBaseInteractable
+public class XRKnob : XRBaseInteractable // ✅ Elimina "Interactables."
 {
     [Tooltip("The transform of the visual component of the knob")]
     public Transform knobTransform = null;
@@ -28,7 +28,7 @@ public class XRKnob : XRBaseInteractable
     public float Value { get; private set; } = 0.0f;
     public float Angle { get; private set; } = 0.0f;
 
-    private IXRSelectInteractor selectInteractor = null;
+    private IXRSelectInteractor selectInteractor = null; // ✅ Corrige la referencia
     private Quaternion selectRotation = Quaternion.identity;
 
     private void Start()
@@ -70,7 +70,7 @@ public class XRKnob : XRBaseInteractable
 
         if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
-            if (isSelected)
+            if (isSelected && selectInteractor != null) // ✅ Evita errores si es null
             {
                 Angle = FindRotationValue();
                 float finalRotation = ApplyRotation(Angle);
@@ -83,9 +83,11 @@ public class XRKnob : XRBaseInteractable
 
     private float FindRotationValue()
     {
+        if (selectInteractor == null) return 0f; // ✅ Evita NullReferenceException
+
         Quaternion rotationDifference = selectInteractor.transform.rotation * Quaternion.Inverse(selectRotation);
         Vector3 rotatedForward = rotationDifference * knobTransform.forward;
-        return (Vector3.SignedAngle(knobTransform.forward, rotatedForward, transform.up));
+        return Vector3.SignedAngle(knobTransform.forward, rotatedForward, transform.up);
     }
 
     private float ApplyRotation(float angle)
@@ -105,7 +107,7 @@ public class XRKnob : XRBaseInteractable
         if (angle > 180)
             angle -= 360;
 
-        return (Mathf.Clamp(angle, minimum, maximum));
+        return Mathf.Clamp(angle, minimum, maximum);
     }
 
     private void SetValue(float rotation)

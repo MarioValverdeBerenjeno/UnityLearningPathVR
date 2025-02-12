@@ -2,9 +2,9 @@
 using UnityEngine.XR.Interaction.Toolkit;
 
 /// <summary>
-/// This script either forces the selection or deselection of an interactable objects by the interactor this script is on.
+/// This script either forces the selection or deselection of an interactable object
+/// by the interactor this script is on.
 /// </summary>
-
 public class ManuallySelectObject : MonoBehaviour
 {
     [Tooltip("What object are we selecting?")]

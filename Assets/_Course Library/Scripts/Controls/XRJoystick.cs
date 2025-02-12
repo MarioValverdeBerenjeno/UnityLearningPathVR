@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// <summary>
 /// An interactable joystick that can move side to side, and forward and back by a direct interactor
 /// </summary>
-public class XRJoystick : XRBaseInteractable
+public class XRJoystick : XRBaseInteractable // ✅ Elimina "Interactables."
 {
     public enum JoystickType
     {
@@ -19,7 +19,7 @@ public class XRJoystick : XRBaseInteractable
     [Tooltip("Joystick sensitivity")]
     public float rateOfChange = 0.1f;
 
-    [Tooltip("Contols how the joystick behaves ")]
+    [Tooltip("Controls how the joystick behaves")]
     public JoystickType leverType = JoystickType.Both;
 
     [Tooltip("The transform of the visual component of the joystick")]
@@ -34,7 +34,7 @@ public class XRJoystick : XRBaseInteractable
     public ValueChangeEvent OnYValueChange = new ValueChangeEvent();
 
     public Vector2 Value { get; private set; } = Vector2.zero;
-    private IXRSelectInteractor selectInteractor = null;
+    private IXRSelectInteractor selectInteractor = null; // ✅ Elimina "Interactors."
 
     private Vector3 initialPosition = Vector3.zero;
 

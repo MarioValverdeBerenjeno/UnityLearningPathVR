@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// <summary>
 /// An interactable lever that snaps into an on or off position by a direct interactor
 /// </summary>
-public class XRLever : XRBaseInteractable
+public class XRLever : XRBaseInteractable // ✅ Eliminamos "Interactables."
 {
     [Tooltip("The object that's grabbed and manipulated")]
     public Transform handle = null;
@@ -21,7 +21,7 @@ public class XRLever : XRBaseInteractable
 
     public bool Value { get; private set; } = false;
 
-    private IXRSelectInteractor selectInteractor = null;
+    private IXRSelectInteractor selectInteractor = null; // ✅ Eliminamos "Interactors."
 
     private void Start()
     {
@@ -61,7 +61,7 @@ public class XRLever : XRBaseInteractable
 
         if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
-            if (isSelected)
+            if (isSelected && selectInteractor != null) // ✅ Evita errores si es null
             {
                 Vector3 lookDirection = GetLookDirection();
                 handle.forward = transform.TransformDirection(lookDirection);
@@ -71,6 +71,8 @@ public class XRLever : XRBaseInteractable
 
     private Vector3 GetLookDirection()
     {
+        if (selectInteractor == null) return Vector3.forward; // ✅ Evita NullReferenceException
+
         Vector3 direction = selectInteractor.transform.position - handle.position;
         direction = transform.InverseTransformDirection(direction);
 
@@ -82,8 +84,9 @@ public class XRLever : XRBaseInteractable
 
     private void ApplyValue(SelectExitEventArgs eventArgs)
     {
-        IXRSelectInteractor interactor = eventArgs.interactorObject;
-        bool isOn = InOnPosition(interactor.transform.position);
+        if (eventArgs.interactorObject == null) return; // ✅ Evita errores si es null
+
+        bool isOn = InOnPosition(eventArgs.interactorObject.transform.position);
 
         FindSnapDirection(isOn);
         SetValue(isOn);

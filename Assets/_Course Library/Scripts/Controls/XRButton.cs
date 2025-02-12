@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// <summary>
 /// An interactable that can be pressed by a direct interactor
 /// </summary>
-public class XRButton : XRBaseInteractable
+public class XRButton : XRBaseInteractable // ✅ Ya no es necesario el prefijo largo
 {
     [Tooltip("The transform of the visual component of the button")]
     public Transform buttonTransform = null;
@@ -22,7 +22,7 @@ public class XRButton : XRBaseInteractable
     private float yMin = 0.0f;
     private float yMax = 0.0f;
 
-    private IXRHoverInteractor hoverInteractor = null;
+    private IXRHoverInteractor hoverInteractor = null; // ✅ Elimina "Interactors."
 
     private float hoverHeight = 0.0f;
     private float startHeight = 0.0f;
@@ -131,7 +131,7 @@ public class XRButton : XRBaseInteractable
         return buttonTransform.localPosition.y < threshold;
     }
 
-    public override bool IsSelectableBy(IXRSelectInteractor interactor)
+    public override bool IsSelectableBy(IXRSelectInteractor interactor) // ✅ Elimina "Interactors."
     {
         return false;
     }

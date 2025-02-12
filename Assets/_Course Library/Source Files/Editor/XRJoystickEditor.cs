@@ -1,43 +1,39 @@
 ﻿using UnityEditor;
-using UnityEditor.XR.Interaction.Toolkit;
+using UnityEngine;
 
 [CustomEditor(typeof(XRJoystick))]
-public class XRJoystickEditor : XRBaseInteractableEditor
+public class XRJoystickEditor : UnityEditor.Editor
 {
-    private SerializedProperty rateOfChange = null;
-    private SerializedProperty leverType = null;
-    private SerializedProperty handle = null;
+    private SerializedProperty rateOfChange;
+    private SerializedProperty leverType;
+    private SerializedProperty handle;
+    private SerializedProperty onXValueChange;
+    private SerializedProperty onYValueChange;
 
-    private SerializedProperty onXValueChange = null;
-    private SerializedProperty onYValueChange = null;
-
-    protected override void OnEnable()
+    private void OnEnable()
     {
-        base.OnEnable();
-
         rateOfChange = serializedObject.FindProperty("rateOfChange");
         leverType = serializedObject.FindProperty("leverType");
         handle = serializedObject.FindProperty("handle");
-
         onXValueChange = serializedObject.FindProperty("OnXValueChange");
         onYValueChange = serializedObject.FindProperty("OnYValueChange");
     }
 
-    protected override void DrawCoreConfiguration()
+    public override void OnInspectorGUI()
     {
-        base.DrawCoreConfiguration();
+        serializedObject.Update();
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Joystick Settings", EditorStyles.boldLabel);
-
         EditorGUILayout.PropertyField(rateOfChange);
         EditorGUILayout.PropertyField(leverType);
         EditorGUILayout.PropertyField(handle);
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Joystick Events", EditorStyles.boldLabel);
-
         EditorGUILayout.PropertyField(onXValueChange);
         EditorGUILayout.PropertyField(onYValueChange);
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
