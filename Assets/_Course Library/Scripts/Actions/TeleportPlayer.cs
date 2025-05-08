@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit; // ✅ Importa correctamente las clases
+using UnityEngine.XR.Interaction.Toolkit;
 
 /// <summary>
 /// Manually teleport the player to a specific anchor
@@ -7,16 +7,16 @@ using UnityEngine.XR.Interaction.Toolkit; // ✅ Importa correctamente las clase
 public class TeleportPlayer : MonoBehaviour
 {
     [Tooltip("The anchor the player is teleported to")]
-    public TeleportationAnchor anchor = null;  // ✅ Ya no usa Locomotion.
+    public TeleportationAnchor anchor = null;
 
     [Tooltip("The provider used to request the teleportation")]
-    public TeleportationProvider provider = null;  // ✅ Ya no usa Locomotion.
+    public TeleportationProvider provider = null;
 
     public void Teleport()
     {
-        if (anchor && provider)
+        if(anchor && provider)
         {
-            TeleportRequest request = CreateRequest();  // ✅ Ya no usa Locomotion.
+            TeleportRequest request = CreateRequest();
             provider.QueueTeleportRequest(request);
         }
     }
@@ -25,7 +25,7 @@ public class TeleportPlayer : MonoBehaviour
     {
         Transform anchorTransform = anchor.teleportAnchorTransform;
 
-        TeleportRequest request = new TeleportRequest()  // ✅ Ya no usa Locomotion.
+        TeleportRequest request = new TeleportRequest()
         {
             requestTime = Time.time,
             matchOrientation = anchor.matchOrientation,

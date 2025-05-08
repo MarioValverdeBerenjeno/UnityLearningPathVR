@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class TeleportAnchorWithFade : TeleportationAnchor // ✅ Elimina "Locomotion.Teleportation."
+public class TeleportAnchorWithFade : TeleportationAnchor
 {
     private FadeCanvas fadeCanvas = null;
 
@@ -49,3 +49,4 @@ public class TeleportAnchorWithFade : TeleportationAnchor // ✅ Elimina "Locomo
         fadeCanvas.QuickFadeOut();
     }
 }
+

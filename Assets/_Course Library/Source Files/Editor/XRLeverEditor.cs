@@ -1,36 +1,40 @@
 ﻿using UnityEditor;
-using UnityEngine;
+using UnityEditor.XR.Interaction.Toolkit;
 
 [CustomEditor(typeof(XRLever))]
-public class XRLeverEditor : UnityEditor.Editor
+public class XRLeverEditor : XRBaseInteractableEditor
 {
-    private SerializedProperty handle;
-    private SerializedProperty defaultValue;
-    private SerializedProperty onLeverActivate;
-    private SerializedProperty onLeverDeactivate;
+    private SerializedProperty handle = null;
+    private SerializedProperty defaultValue = null;
 
-    private void OnEnable()
+    private SerializedProperty onLeverActivate = null;
+    private SerializedProperty onLeverDeactivate = null;
+
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         handle = serializedObject.FindProperty("handle");
         defaultValue = serializedObject.FindProperty("defaultValue");
+
         onLeverActivate = serializedObject.FindProperty("OnLeverActivate");
         onLeverDeactivate = serializedObject.FindProperty("OnLeverDeactivate");
     }
 
-    public override void OnInspectorGUI()
+    protected override void DrawCoreConfiguration()
     {
-        serializedObject.Update();
+        base.DrawCoreConfiguration();
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Lever Settings", EditorStyles.boldLabel);
+
         EditorGUILayout.PropertyField(handle);
         EditorGUILayout.PropertyField(defaultValue);
 
         EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Lever Events", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("Lever Event", EditorStyles.boldLabel);
+
         EditorGUILayout.PropertyField(onLeverActivate);
         EditorGUILayout.PropertyField(onLeverDeactivate);
-
-        serializedObject.ApplyModifiedProperties();
     }
 }

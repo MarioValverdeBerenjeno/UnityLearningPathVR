@@ -1,30 +1,35 @@
 ﻿using UnityEditor;
-using UnityEngine;
+using UnityEditor.XR.Interaction.Toolkit;
 
 [CustomEditor(typeof(XRKnob))]
-public class XRKnobEditor : UnityEditor.Editor
+public class XRKnobEditor : XRBaseInteractableEditor
 {
-    private SerializedProperty knobTransform;
-    private SerializedProperty minimum;
-    private SerializedProperty maximum;
-    private SerializedProperty defaultValue;
-    private SerializedProperty onValueChange;
+    private SerializedProperty knobTransform = null;
+    private SerializedProperty minimum = null;
+    private SerializedProperty maximum = null;
+    private SerializedProperty defaultValue = null;
 
-    private void OnEnable()
+    private SerializedProperty onValueChange = null;
+
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         knobTransform = serializedObject.FindProperty("knobTransform");
         minimum = serializedObject.FindProperty("minimum");
         maximum = serializedObject.FindProperty("maximum");
         defaultValue = serializedObject.FindProperty("defaultValue");
+
         onValueChange = serializedObject.FindProperty("OnValueChange");
     }
 
-    public override void OnInspectorGUI()
+    protected override void DrawCoreConfiguration()
     {
-        serializedObject.Update();
+        base.DrawCoreConfiguration();
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Knob Settings", EditorStyles.boldLabel);
+
         EditorGUILayout.PropertyField(knobTransform);
         EditorGUILayout.PropertyField(minimum);
         EditorGUILayout.PropertyField(maximum);
@@ -32,8 +37,7 @@ public class XRKnobEditor : UnityEditor.Editor
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Knob Event", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(onValueChange);
 
-        serializedObject.ApplyModifiedProperties();
+        EditorGUILayout.PropertyField(onValueChange);
     }
 }

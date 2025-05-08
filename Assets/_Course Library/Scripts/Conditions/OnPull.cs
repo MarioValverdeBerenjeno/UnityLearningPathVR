@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.XR.Interaction.Toolkit; // ✅ Importa correctamente las clases
+using UnityEngine.XR.Interaction.Toolkit;
 
 /// <summary>
 /// Tracks the distance of an interactor with begin, and end threshold
@@ -16,17 +16,17 @@ public class OnPull : MonoBehaviour
     // Once the threshold is no longer broken
     public UnityEvent OnEnd = new UnityEvent();
 
-    private XRBaseInteractor pullInteractor = null; // ✅ Ya no usa Interactors.
+    private XRBaseInteractor pullInteractor = null;
     private Vector3 startPosition = Vector3.zero;
     private bool withinThreshold = false;
 
-    public void BeginCheck(XRBaseInteractor interactor) // ✅ Ya no usa Interactors.
+    public void BeginCheck(XRBaseInteractor interactor)
     {
         pullInteractor = interactor;
         startPosition = pullInteractor.transform.position;
     }
 
-    public void EndCheck(XRBaseInteractor interactor) // ✅ Ya no usa Interactors.
+    public void EndCheck(XRBaseInteractor interactor)
     {
         pullInteractor = null;
         startPosition = Vector3.zero;

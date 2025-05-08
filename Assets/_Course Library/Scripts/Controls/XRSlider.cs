@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.XR.Interaction.Toolkit; // ✅ Importa correctamente las clases
+using UnityEngine.XR.Interaction.Toolkit;
 
 /// <summary>
-/// An interactable that lets the push/pull a handle along a linear track by a direct interactor
+/// An interactable that lets the push/pull a handle a long a linear track by a direct interactor
 /// </summary>
-public class XRSlider : XRBaseInteractable // ✅ Ya no usa Interactables.
+public class XRSlider : XRBaseInteractable
 {
     [Tooltip("The object that's grabbed and manipulated")]
     public Transform handle = null;
@@ -27,7 +27,7 @@ public class XRSlider : XRBaseInteractable // ✅ Ya no usa Interactables.
 
     public float Value { get; private set; } = 0.0f;
 
-    private IXRSelectInteractor selectInteractor = null; // ✅ Ya no usa Interactors.
+    private IXRSelectInteractor selectInteractor = null;
     private Vector3 selectPosition = Vector3.zero;
     private float startingValue = 0.0f;
 

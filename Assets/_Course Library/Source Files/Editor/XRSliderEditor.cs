@@ -1,30 +1,35 @@
 ﻿using UnityEditor;
-using UnityEngine;
+using UnityEditor.XR.Interaction.Toolkit;
 
 [CustomEditor(typeof(XRSlider))]
-public class XRSliderEditor : UnityEditor.Editor
+public class XRSliderEditor : XRBaseInteractableEditor
 {
-    private SerializedProperty handle;
-    private SerializedProperty start;
-    private SerializedProperty end;
-    private SerializedProperty defaultValue;
-    private SerializedProperty onValueChange;
+    private SerializedProperty handle = null;
+    private SerializedProperty start = null;
+    private SerializedProperty end = null;
+    private SerializedProperty defaultValue = null;
 
-    private void OnEnable()
+    private SerializedProperty onValueChange = null;
+
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         handle = serializedObject.FindProperty("handle");
         start = serializedObject.FindProperty("start");
         end = serializedObject.FindProperty("end");
         defaultValue = serializedObject.FindProperty("defaultValue");
+
         onValueChange = serializedObject.FindProperty("OnValueChange");
     }
 
-    public override void OnInspectorGUI()
+    protected override void DrawCoreConfiguration()
     {
-        serializedObject.Update();
+        base.DrawCoreConfiguration();
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Slider Settings", EditorStyles.boldLabel);
+
         EditorGUILayout.PropertyField(handle);
         EditorGUILayout.PropertyField(start);
         EditorGUILayout.PropertyField(end);
@@ -32,8 +37,7 @@ public class XRSliderEditor : UnityEditor.Editor
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Slider Event", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(onValueChange);
 
-        serializedObject.ApplyModifiedProperties();
+        EditorGUILayout.PropertyField(onValueChange);
     }
 }
