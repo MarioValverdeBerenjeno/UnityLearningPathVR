@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 21531260}
   - component: {fileID: 21531262}
   - component: {fileID: 21531261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paper (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7360,7 +7360,7 @@ GameObject:
   - component: {fileID: 1110435224}
   - component: {fileID: 1110435226}
   - component: {fileID: 1110435225}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paper (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11034,7 +11034,7 @@ GameObject:
   - component: {fileID: 1557730425}
   - component: {fileID: 1557730427}
   - component: {fileID: 1557730426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paper (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24630,7 +24630,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -28404,7 +28404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565964061512709315}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28964,7 +28964,7 @@ GameObject:
   - component: {fileID: 4844571851191685985}
   - component: {fileID: 4844571851191685991}
   - component: {fileID: 4844571851191685990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clipboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29007,7 +29007,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 8
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -29168,7 +29168,7 @@ GameObject:
   - component: {fileID: 4844571851544369062}
   - component: {fileID: 4844571851544369060}
   - component: {fileID: 4844571851544369063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29251,7 +29251,7 @@ GameObject:
   - component: {fileID: 4844571851574380026}
   - component: {fileID: 4844571851574380025}
   - component: {fileID: 4844571851574380024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29335,7 +29335,7 @@ GameObject:
   - component: {fileID: 4844571851604532740}
   - component: {fileID: 4844571851604532743}
   - component: {fileID: 4844571851604532742}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Backing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29788,7 +29788,7 @@ GameObject:
   - component: {fileID: 1500423730307577642}
   - component: {fileID: 1500423730307577643}
   - component: {fileID: 1500423729895173487}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HouseModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30389,7 +30389,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 16
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -30785,7 +30785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3830883702251391052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31091,7 +31091,7 @@ GameObject:
   - component: {fileID: 6676410638485568776}
   - component: {fileID: 6676410638485568775}
   - component: {fileID: 6676410638485568774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32349,7 +32349,7 @@ GameObject:
   - component: {fileID: 4809505777395726078}
   - component: {fileID: 5532377344757039496}
   - component: {fileID: 6069904500843224116}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Measuring Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
